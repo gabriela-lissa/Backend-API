@@ -14,8 +14,12 @@ app.get('/dataehora', (req, res) => {
   const now = new Date();
 
   res.json({
-    date: now.toLocaleDateString('pt-BR'),
-    time: now.toLocaleTimeString('pt-BR')
+    date: now.toLocaleDateString('pt-BR', {
+      timeZone: 'America/Sao_Paulo'
+    }),
+    time: now.toLocaleTimeString('pt-BR', {
+      timeZone: 'America/Sao_Paulo'
+    })
   });
 });
 
