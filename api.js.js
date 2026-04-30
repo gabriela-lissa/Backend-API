@@ -5,10 +5,10 @@ const app = express();
 app.use(cors());
 
 app.get('/', (req, res) => {
-  res.send("API rodando 🚀 use /datetime");
+  res.send("API rodando 🚀 use /dataehora ou /calculadora");
 });
 
-app.get('/datetime', (req, res) => {
+app.get('/dataehora', (req, res) => {
   const now = new Date();
 
   res.json({
@@ -25,7 +25,7 @@ app.get('/calculadora', (req, res) => {
   const numB = Number(b);
 
   res.json({
-    result: numA + numB
+    resultado: numA + numB
   });
 });
 
