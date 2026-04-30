@@ -4,6 +4,10 @@ import cors from 'cors';
 const app = express();
 app.use(cors());
 
+app.get('/', (req, res) => {
+  res.send("API rodando 🚀 use /datetime");
+});
+
 app.get('/datetime', (req, res) => {
   const now = new Date();
 
