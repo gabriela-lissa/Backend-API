@@ -4,10 +4,12 @@ import cors from 'cors';
 const app = express();
 app.use(cors());
 
+// ROTA PRINCIPAL
 app.get('/', (req, res) => {
   res.send("API rodando 🚀 use /dataehora ou /calculadora");
 });
 
+// DATA E HORA
 app.get('/dataehora', (req, res) => {
   const now = new Date();
 
@@ -17,20 +19,28 @@ app.get('/dataehora', (req, res) => {
   });
 });
 
-// calculadora simples
+// CALCULADORA
 app.get('/calculadora', (req, res) => {
   const { a, b } = req.query;
 
   const numA = Number(a);
   const numB = Number(b);
 
+  // validação básica (evita NaN)
+  if (isNaN(numA) || isNaN(numB)) {
+    return res.status(400).json({
+      erro: "Parâmetros inválidos. Use ?a=numero&b=numero"
+    });
+  }
+
   res.json({
     resultado: numA + numB
   });
 });
 
+// PORTA (Render usa isso)
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
-  console.log(`Rodando na porta ${PORT}`);
+  console.log(`Servidor rodando na porta ${PORT}`);
 });
