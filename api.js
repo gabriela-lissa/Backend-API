@@ -6,7 +6,7 @@ app.use(cors());
 
 // ROTA PRINCIPAL
 app.get('/', (req, res) => {
-  res.send("API rodando 🚀 use /dataehora ou /calculadora");
+  res.send("API rodando. Use /dataehora ou /calculadora");
 });
 
 // DATA E HORA
@@ -42,7 +42,7 @@ app.get('/calculadora', (req, res) => {
   });
 });
 
-// PORTA (Render usa isso)
+// PORTA
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
