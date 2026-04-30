@@ -4,7 +4,7 @@ import cors from 'cors';
 const app = express();
 app.use(cors());
 
-app.get('/', (req, res) => {
+app.get('/datetime', (req, res) => {
   const now = new Date();
 
   res.json({
