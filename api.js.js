@@ -4,7 +4,7 @@ import cors from 'cors';
 const app = express();
 app.use(cors());
 
-app.get('/datetime', (req, res) => {
+app.get('/', (req, res) => {
   const now = new Date();
 
   res.json({
@@ -14,7 +14,7 @@ app.get('/datetime', (req, res) => {
 });
 
 // calculadora simples
-app.get('/calculate', (req, res) => {
+app.get('/calculadora', (req, res) => {
   const { a, b } = req.query;
 
   const numA = Number(a);
